@@ -1,0 +1,5 @@
+# Project exclude paths
+/cmake-build-debug/CMakeFiles/
+/cmake-build-minsizerel/CMakeFiles/
+/cmake-build-release/CMakeFiles/
+/cmake-build-relwithdebinfo/CMakeFiles/
