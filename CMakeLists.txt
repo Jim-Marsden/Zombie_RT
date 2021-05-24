@@ -13,7 +13,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(Catch2)
 set(Zombie_RT_Source zombie_statements.hpp dynamic_type.cpp dynamic_type.h task.cpp task.h main.cpp entity.cpp entity.h)
 
-set(Zombie_Test_Source zombie_statements.hpp dynamic_type.cpp dynamic_type.h task.cpp task.h test_dynamic_type.cpp test_main.cpp entity.cpp entity.h)
+set(Zombie_Test_Source zombie_statements.hpp dynamic_type.cpp dynamic_type.h task.cpp task.h test_dynamic_type.cpp test_main.cpp entity.cpp entity.h test_task.cpp)
 
 add_executable(Zombie_RT ${Zombie_RT_Source})
 target_link_libraries(Zombie_RT Catch2::Catch2)
