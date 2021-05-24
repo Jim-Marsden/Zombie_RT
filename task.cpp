@@ -31,3 +31,9 @@ std::vector<zmb::task::full_statement>::const_iterator zmb::task::begin() const 
 std::vector<zmb::task::full_statement>::const_iterator zmb::task::end() const noexcept {
     return data.end();
 }
+
+void zmb::task::add_statement(const zmb::dynamic_type & dt, zmb::task_statement_enum taskStatementEnum) noexcept {
+    data.push_back({dt, taskStatementEnum});
+}
+
+
