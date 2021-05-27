@@ -1,8 +1,10 @@
 namespace zmb{
     enum struct task_statement_enum{
-        unknown = -1,
-        test = 666,
-        animate = 0,
+        test = -666,
+        jump,
+        loop,
+        unknown = 0,
+        animate = 1,
         banish,
         disturb,
         forget,
