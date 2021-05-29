@@ -41,3 +41,21 @@ TEST_CASE("zmb::task::set_stack_pointer"){
     REQUIRE(!task.set_stack_pointer(2));
 
 }
+
+TEST_CASE("zmb::task::next()"){
+
+    {
+        constexpr auto to_loop{0xffff};
+        zmb::task task;
+        REQUIRE(!task.next());
+        task.reserve(to_loop);
+        for(int i{}; i<to_loop; ++i)
+            task.add_statement(zmb::task_statement_enum::noop);
+
+        for(int i{}; i<to_loop - 1; ++i)
+            REQUIRE(task.next());
+
+        REQUIRE(!task.next());
+    }
+
+}
