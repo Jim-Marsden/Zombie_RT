@@ -66,7 +66,7 @@ namespace zmb {
 
         [[nodiscard]] data_size_t get_stack_pointer() const noexcept;
 
-        void set_stack_pointer(data_size_t) noexcept;
+        bool set_stack_pointer(data_size_t) noexcept;
 
         bool next() noexcept;
 

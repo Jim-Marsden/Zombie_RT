@@ -40,8 +40,12 @@ zmb::task::data_size_t zmb::task::get_stack_pointer() const noexcept {
     return stack_pointer;
 }
 
-void zmb::task::set_stack_pointer(zmb::task::data_size_t sp) noexcept {
-    stack_pointer = sp;
+bool zmb::task::set_stack_pointer(zmb::task::data_size_t sp) noexcept {
+    if(sp < data.size()) {
+        stack_pointer = sp;
+        return true;
+    }
+    return false;
 
 }
 
