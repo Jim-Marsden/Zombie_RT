@@ -65,7 +65,7 @@ zmb::task::address_size_t zmb::task::get_current_address() const noexcept {
 
 ///////////////////////////////PRIVATE
 zmb::task::full_statement zmb::task::get_current_full_statement() const noexcept {
-    if(data.size() == 0 || data.size() < stack_pointer) return {zmb::task_statement_enum::noop, 0};
+    if(data.size() == 0 || data.size() < stack_pointer) return {zmb::task_statement_enum::noop, null_address};
     else return data[stack_pointer];
 }
 
