@@ -11,18 +11,33 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <limits>
 
 namespace zmb {
 
-
     class task {
+        using address_size_t = short unsigned;
         struct full_statement {
-            dynamic_type type;
-            task_statement_enum statement;
+            task_statement_enum instruction{};
+            address_size_t address{};
         };
         std::vector<full_statement> data;
 
+        using data_size_t = decltype(data)::size_type;
+
+        data_size_t stack_pointer{};
+
+        [[nodiscard]] full_statement get_current_full_statement() const noexcept;
+
+
+
     public:
+
+//        static constexpr address_size_t get_max();
+        static constexpr auto max_size{std::numeric_limits<address_size_t>::max()};
+        constexpr static address_size_t null_address{max_size};
+
+
         task() = default;
 
         ~task() = default;
@@ -33,7 +48,7 @@ namespace zmb {
 
         task &operator=(task const &) = default;
 
-        [[nodiscard]] decltype(data)::size_type size();
+        [[nodiscard]] data_size_t size();
 
         [[nodiscard]] decltype(data)::iterator begin() noexcept;
 
@@ -47,19 +62,20 @@ namespace zmb {
 
         [[nodiscard]] decltype(data)::const_iterator end() const noexcept;
 
-        void add_statement(dynamic_type const &, task_statement_enum taskStatementEnum) noexcept;
+        void add_statement(task_statement_enum taskStatementEnum, address_size_t address=0) noexcept;
 
+        [[nodiscard]] data_size_t get_stack_pointer() const noexcept;
+
+        void set_stack_pointer(data_size_t) noexcept;
+
+        bool next() noexcept;
+
+        [[nodiscard]] task_statement_enum get_current_instruction() const noexcept;
+
+        [[nodiscard]] address_size_t get_current_address() const noexcept;
 
     };
 
-    template<class invokeable_t>
-    auto invoke_task(task const &taskv,  invokeable_t invokeable) {
-        if(invokeable == nullptr)return false;
-        for (auto &e :  taskv) {
-            invokeable(e.type, e.statement);
-        }
-        return true;
-    }
 
 
 }// namespace zmb

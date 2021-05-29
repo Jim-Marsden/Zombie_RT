@@ -3,6 +3,7 @@ namespace zmb{
         test = -666,
         jump,
         loop,
+        noop,
         unknown = 0,
         animate = 1,
         banish,
