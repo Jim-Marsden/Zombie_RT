@@ -74,6 +74,7 @@ namespace zmb {
 
         [[nodiscard]] address_size_t get_current_address() const noexcept;
 
+        void reserve(data_size_t) noexcept;
     };
 
 
