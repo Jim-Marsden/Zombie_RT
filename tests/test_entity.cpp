@@ -4,7 +4,7 @@
 
 #include <functional>
 #include <catch2/catch.hpp>
-#include "entity.h"
+#include "../entity.h"
 
 TEST_CASE("zmb::entity::task_size()"){
     zmb::entity entity;

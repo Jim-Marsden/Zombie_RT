@@ -5,7 +5,7 @@
 #define CATCH_TEST_RUNNER
 #include <functional>
 #include <catch2/catch.hpp>
-#include "task.h"
+#include "../task.h"
 
 
 TEST_CASE("zmb::task::add_statement", "default"){
