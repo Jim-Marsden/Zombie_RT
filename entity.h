@@ -19,18 +19,15 @@ namespace zmb {
         
     public:
 
-        virtual ~entity() = default;
-        entity() = default;
-
-        entity(entity const &)=default;
-        entity(entity &&)=default;
-        entity & operator=(entity const &) = default;
 
 
         [[nodiscard]] decltype(tasks.size()) task_size() const noexcept;
 
+        [[nodiscard]] bool empty() const noexcept;
+
 
         void add_task(zmb::task const & task_in) noexcept;
+
 
         //Will push_back if true;
         [[nodiscard]] task const & back() const noexcept;

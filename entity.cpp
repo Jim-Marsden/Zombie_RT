@@ -23,3 +23,8 @@ decltype(zmb::entity::tasks.size()) zmb::entity::task_size() const noexcept
 {
     return tasks.size();
 }
+
+bool zmb::entity::empty() const noexcept
+{
+    return tasks.empty();
+}
