@@ -8,22 +8,35 @@
 #include "dynamic_type.h"
 #include "task.h"
 
+#include <vector>
+
 namespace zmb {
     class entity {
+        dynamic_type memory;
+
+        std::vector <zmb::task> tasks;
+
         
     public:
 
-        virtual void jump(zmb::task const & ztask, decltype(zmb::task::null_address) to_jump) = 0;
-        virtual void animate() = 0;
-        virtual void banish() = 0;
-        virtual void disturb(zmb::entity &) = 0;
-        virtual void forget() = 0;
-        virtual void invoke() = 0;
-        virtual void moan() = 0;
-        virtual void remember(/*zmb::entity_t::zombie*/) = 0;
-        virtual void remember(dynamic_type const & dynamic_type) = 0;
+        virtual ~entity() = default;
+        entity() = default;
 
-        void say(dynamic_type const & dynamic_type);
+        entity(entity const &)=default;
+        entity(entity &&)=default;
+        entity & operator=(entity const &) = default;
+
+
+        [[nodiscard]] decltype(tasks.size()) task_size() const noexcept;
+
+
+        void add_task(zmb::task const & task_in) noexcept;
+
+        //Will push_back if true;
+        [[nodiscard]] task const & back() const noexcept;
+        [[nodiscard]] task & back() noexcept;
+
+
     };
 }
 
