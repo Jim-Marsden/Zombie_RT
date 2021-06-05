@@ -4,7 +4,7 @@
 
 #include "task.h"
 
-unsigned long zmb::task::size() {
+zmb::task::data_size_t zmb::task::size() {
     return data.size();
 }
 
