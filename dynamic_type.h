@@ -45,6 +45,8 @@ namespace zmb {
 
         [[nodiscard]] numeric_type get_as_numeric() const noexcept;
 
+        void clear() noexcept;
+
     };
 }
 

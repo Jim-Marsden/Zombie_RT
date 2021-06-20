@@ -57,3 +57,9 @@ zmb::dynamic_type::numeric_type zmb::dynamic_type::get_as_numeric() const noexce
         }
     }
 }
+
+void zmb::dynamic_type::clear() noexcept {
+    if(check_type_is_num()) data = 0;
+    else data = "";
+
+}
