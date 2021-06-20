@@ -16,7 +16,10 @@
 namespace zmb {
 
     class task {
+    public:
+
         using address_size_t = short unsigned;
+    protected:
         struct full_statement {
             task_statement_enum instruction{};
             address_size_t address{};
