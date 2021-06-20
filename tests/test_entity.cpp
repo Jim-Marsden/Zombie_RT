@@ -30,8 +30,9 @@ TEST_CASE(" const zmb::entity::back()"){
     auto test_lambda = [](zmb::entity const & e) -> zmb::task const &{ return e.back();};
 
     auto & e = test_lambda(entity);
-    //e.add_statement(zmb::task_statement_enum::noop);
-
+//    e.add_statement(zmb::task_statement_enum::noop);
+    auto t = e.get_current_address();
+    t++;
     REQUIRE(true); // sanity check, if there's an issue i'd be cuaght at compile time.
 
 }
